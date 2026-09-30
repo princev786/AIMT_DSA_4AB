@@ -6,10 +6,18 @@ class Node:
 class QueueOps:
     front,rear = None,None
 
-    def enqueue(self,val):
+    def enqueue(self,val,k):
         if self.front == None:
             self.front = Node(val)
             self.rear = self.front
+            return
+        if count==k:
+            self.rear.next = self.front
+            k+=1
+        if count>k:
+            self.rear.next.data = val
+            self.rear = self.rear.next
+            self.front = self.front.next
             return
         self.rear.next = Node(val)
         self.rear = self.rear.next
@@ -28,6 +36,28 @@ class QueueOps:
         while temp!=None:
             print(temp.data ,end=" ")
             temp = temp.next
+    # def enqueue(self,val):
+    #     if self.front == None:
+    #         self.front = Node(val)
+    #         self.rear = self.front
+    #         return
+    #     self.rear.next = Node(val)
+    #     self.rear = self.rear.next
+
+    # def dequeue(self):
+    #     if self.front == None:
+    #         return -1
+    #     d = self.front.data
+    #     self.front = self.front.next
+    #     return d
+
+    # def display(self):
+    #     if self.front== None:
+    #         return
+    #     temp = self.front
+    #     while temp!=None:
+    #         print(temp.data ,end=" ")
+    #         temp = temp.next
 
 if __name__ == "__main__":
     que = QueueOps()
